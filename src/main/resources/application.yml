@@ -1,0 +1,42 @@
+server:
+  port: 8085
+  
+spring:
+  application:
+    name: zuulserver
+
+zuul:
+  ignoredServices: '*'
+  prefix: /api
+  routes:
+    provision-service:
+      path: /m2/**
+      serviceId: provision-service
+      strip-prefix: false
+      #url: http://localhost:8082/
+    cont-service:
+      path: /m1/**
+      serviceId:  cont-service
+      strip-prefix: false
+      #url: http://localhost:8081/
+    cert-service:
+      path: /m3/**
+      serviceId:  cert-service
+      strip-prefix: false
+      #url: http://localhost:8080/
+    zuulserver:
+      path: /gateway/**
+      serviceId:  zuulserver
+      strip-prefix: false
+     
+      
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka
+
+endpoints:
+  routes:
+    sensitive: false
+  trace:
+    sensitive: false
