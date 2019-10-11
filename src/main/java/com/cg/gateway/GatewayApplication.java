@@ -10,9 +10,10 @@ import org.springframework.cloud.netflix.ribbon.RibbonClients;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
-@EnableDiscoveryClient
 @EnableEurekaClient
 @EnableZuulProxy
+@EnableAutoConfiguration
+@ComponentScan("com.cg.gateway")
 @SpringBootApplication
 public class GatewayApplication {
 
