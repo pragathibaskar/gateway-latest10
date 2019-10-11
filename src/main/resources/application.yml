@@ -33,7 +33,7 @@ zuul:
 eureka:
   client:
     service-url:
-      default-zone: http://172.30.168.108:8761/eureka/
+      default-zone: http://eureka.adifv2.svc:8761/eureka/
 
 endpoints:
   routes:
