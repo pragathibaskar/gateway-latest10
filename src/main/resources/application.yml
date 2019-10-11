@@ -27,13 +27,21 @@ zuul:
     zuulserver:
       path: /gateway/**
       serviceId:  zuulserver
-      strip-prefix: false
+      strip-prefix: false    
      
-      
+     
+eureka:
+  instance:
+    hostname: eureka.adifv2.svc
+    
+eureka:
+  instance:
+    port: 8761
+
 eureka:
   client:
     service-url:
-      default-zone: http://eureka.adifv2.svc:8761/eureka/
+      default-zone: http://{eureka.instance.hostname}:{eureka.instance.port}/eureka/
 
 endpoints:
   routes:
